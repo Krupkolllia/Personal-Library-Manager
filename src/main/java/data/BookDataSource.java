@@ -1,28 +1,16 @@
 package data;
 
 import common.DataSource;
+import common.FileSource;
+import common.Parser;
 import data.dto.BookDto;
+import data.parser.BookParser;
 
 import java.util.ArrayList;
 
-public class BookDataSource implements DataSource<BookDto> {
-    @Override
-    public BookDto giveById(int id) {
-        return null;
-    }
+public class BookDataSource extends DataSource<BookDto> {
 
-    @Override
-    public ArrayList<BookDto> giveAll() {
-        return null;
-    }
-
-    @Override
-    public void add(BookDto item) {
-
-    }
-
-    @Override
-    public void delete(int id) {
-
+    public BookDataSource(BookParser parser, FileSource source) {
+        super(parser, source);
     }
 }

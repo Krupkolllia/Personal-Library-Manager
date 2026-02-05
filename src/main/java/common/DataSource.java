@@ -1,13 +1,26 @@
 package common;
 
-import java.util.ArrayList;
+import java.io.File;
 
-public interface DataSource<T> {
-    public T giveById(int id);
+public abstract class DataSource<T> {
+    public Parser<T> parser;
+    public FileSource source;
 
-    public ArrayList<T> giveAll();
+    public DataSource(Parser<T> parser, FileSource source) {
+        this.parser = parser;
+        this.source = source;
+    }
 
-    public void add(T item);
+    public void setParser(Parser<T> parser) {
+        this.parser = parser;
+    }
 
-    public void delete(int id);
+    public void setSource(FileSource source) {
+        this.source = source;
+    }
+
+    public T getFile(String path) {
+        File file = source.getFile(path);
+        return parser.parse(file);
+    }
 }
