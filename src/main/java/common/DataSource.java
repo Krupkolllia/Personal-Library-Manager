@@ -1,6 +1,6 @@
 package common;
 
-import java.io.File;
+import java.io.IOException;
 
 public abstract class DataSource<T> {
     public Parser<T> parser;
@@ -19,8 +19,7 @@ public abstract class DataSource<T> {
         this.source = source;
     }
 
-    public T getFile(String path) {
-        File file = source.getFile(path);
-        return parser.parse(file);
+    public T getFileDto(String path) throws IOException {
+        return parser.parse(source.getFile(path));
     }
 }

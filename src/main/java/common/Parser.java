@@ -1,9 +1,9 @@
 package common;
 
-import java.io.File;
+import java.io.InputStream;
 
 public interface Parser<T> {
 
-    public T parse(File file);
+    T parse(InputStream inputStream);
 
 }

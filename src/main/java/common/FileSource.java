@@ -1,7 +1,8 @@
 package common;
 
-import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 public interface FileSource {
-    File getFile(String path);
+    InputStream getFile(String path) throws IOException;
 }
