@@ -1,8 +1,23 @@
 package common;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
+import java.util.Objects;
 
-public interface FileSource {
-    InputStream getFile(String path) throws IOException;
+public class FileSource {
+    private Source source;
+
+
+    public FileSource(Source source) {
+        this.source = Objects.requireNonNull(source);
+    }
+
+    public void setSource(Source source) {
+        this.source = source;
+    }
+
+
+    public File getFile(SourceKey key) throws IOException {
+        return source.load(key);
+    }
 }

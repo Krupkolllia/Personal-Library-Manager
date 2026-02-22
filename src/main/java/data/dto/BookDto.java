@@ -1,14 +1,19 @@
 package data.dto;
 
+import common.Dto;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 public record BookDto(
-        int id,
+        UUID id,
         String title,
         String author,
-        int year,
+        String year,
         int pages,
-        Date timeAdded,
-        ArrayList<Content> content
-) {}
+        LocalDate timeAdded,
+        List<Content> content
+) implements Dto {}

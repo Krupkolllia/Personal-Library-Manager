@@ -1,9 +1,10 @@
 package common;
 
-import java.io.InputStream;
+import java.io.File;
+import java.io.IOException;
 
-public interface Parser<T> {
+public interface Parser<T extends Dto> {
 
-    T parse(InputStream inputStream);
+    T parse(File file) throws IOException;
 
 }
